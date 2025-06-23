@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= vehicle ? 'Edit' : 'Add' %> Vehicle</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <h1><%= vehicle ? '✏️ Edit' : '➕ Add' %> Vehicle</h1>
+  <form action="<%= vehicle ? '/edit/' + vehicle.id : '/add' %>" method="POST">
+    <input type="text" name="vehicleName" placeholder="Vehicle Name" value="<%= vehicle?.vehicleName || '' %>" required><br>
+    <input type="number" name="price" placeholder="Price" value="<%= vehicle?.price || '' %>" required><br>
+    <input type="text" name="image" placeholder="Image URL" value="<%= vehicle?.image || '' %>" required><br>
+    <input type="text" name="brand" placeholder="Brand" value="<%= vehicle?.brand || '' %>" required><br>
+    <textarea name="desc" placeholder="Description" required><%= vehicle?.desc || '' %></textarea><br>
+    <button type="submit"><%= vehicle ? 'Update' : 'Add' %> Vehicle</button>
+    <a href="/">🔙 Back</a>
+  </form>
+</body>
+</html>
